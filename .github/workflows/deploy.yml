@@ -32,7 +32,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/fastapi-app:1.0
   
-  # CD: 배포
+  # CD: 배포1
   # EC2에 docker-compose/yml, 설정파일등 copy, docker-compose 작동
   #cd:
     
