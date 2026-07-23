@@ -68,4 +68,8 @@ jobs:
             # ./web/bin/pip install -r requirements.txt
 
             # 3. 서비스 재가동 
-            sudo systemctl restart hello.service
+            # stop -> start 수동 진행시 확인
+            # restart 조정 필요
+            # sudo systemctl restart hello.service
+            sudo systemctl stop hello.service
+            sudo systemctl start hello.service
