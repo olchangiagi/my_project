@@ -3,7 +3,7 @@ name: Push 기반 CI/CD 테스트
 # container 브랜치에서 push 이벤트(리슨 -> on)가 발생되면 아래 설정한 내용대로 작동함.
 on: 
   push:
-    branches: [ "comtainer" ]
+    branches: [ "container" ]
 
 jobs:
   # app관련 이미지를 생성해 허브에 push (소스코드/리소스 모두 포함되어 있음)
