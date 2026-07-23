@@ -30,7 +30,9 @@ jobs:
           ls -al
           cat main.py
         shell: bash
+      
 
+      # CD 작업----------------------------------------------------------------------------------
       # CI쪽 서버에서 EC2 서버(배포용 서버)로 배포 -> SSH
       # 사전에 먼저 AWS EC2 생성 -> IP/Domain, ubuntu(사용자명), key = pem파일 사용
       # -> Github상 해당 저장소에 secrets 변수로 위의 3개 값을 세팅
@@ -47,4 +49,23 @@ jobs:
           # ubuntu os가 세팅된 ec2 서버의 아래 경로 *.* 복사
           target: "/home/ubuntu/projects"
 
-    # 시크릿 변수에는 환경변수 (.env <- git 업로드x)에 들어가는 내용들을 담을수도 있음
+      # 시크릿 변수에는 환경변수 (.env <- git 업로드x)에 들어가는 내용들을 담을수도 있음
+      # 개별 사항을 세팅 or yml에서 설정 or 동적으로 .env를 만들어서 배포 등등을 가능하게 함
+      
+      # 남은 사항 -> 서비스 재가동 명령 전달
+      # EC2 서버에 배포 후 작동
+      - name: Run Script And Service Restart
+        uses: appleboy/ssh-action@master
+        with: 
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_KEY }}
+          port: 22
+          scripts: |
+            # 1. 프로젝트 폴더 위치로 이동
+            # cd /home/ubuntu/projects
+            # 2. 가상환경에 추가된 패키지가 있다면 
+            # ./web/bin/pip install -r requirements.txt
+
+            # 3. 서비스 재가동 
+            sudo systemctl restart hello.service
