@@ -27,7 +27,7 @@ services:
     # app이라는 디렉토리 내에 존재하는 Dockerfile을 기반으로 빌드 -> 이미지생성 -> 컨테이너 구성
     # 로컬에서 build 하던 방식을 docker 허브에서 내려받는 방식으로 변경 build -> image
     # 추후 .enc에서 획득
-    image: olchangiagi/fastapi-app:1.0
+    image: olchangiagi/fastapi-app:1.1
     container_name: fastapi_app
     restart: unless-stopped
     ports:
