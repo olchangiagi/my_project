@@ -79,7 +79,7 @@ jobs:
             cd /home/ubuntu
             # 필요시 .env 생성 -> 시크릿 변수 읽어 파일 처리(여기서는 생략)
             # 최신 이미지 가져오기
-            docker-compose pull
+            # docker-compose pull 생략
             # 컨테이너 구성 -> 신규, 교체
             docker-compose up -d
             # 이미지가 최신으로 교체되면 기존것이 가비지가 되어 공간만 차지함
