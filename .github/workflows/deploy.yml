@@ -42,9 +42,11 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/nginx-proxy:1.0
 
   
-  # CD: 배포2
-  # EC2에 docker-compose/yml, 설정파일등 copy, docker-compose 작동
-  #cd:
+  # CD: 배포
+  # EC2에 docker-compose/yml, 설정파일등 copy
+  # docker-compose SSH 명령어 실행
+  cd:
+    runs-on: ubuntu-latest
     
-
+          
       
